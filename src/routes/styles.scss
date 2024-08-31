@@ -3,9 +3,49 @@
   --notch-gap: 4px;
 
   --color-white: white;
+  --color-black: #000000;
+  --color-dark:  #808080;
+  --color-light: #C0C0C0;
+}
+[data-theme='gray'] {
+  --color-black: #000000;
+  --color-dark:  #808080;
+  --color-light: #C0C0C0;
+}
+[data-theme='red'] {
+  --color-black: #140000;
+  --color-dark:  #C20D0D;
+  --color-light: #F87B57;
+}
+[data-theme='orange'] {
+  --color-black: #120F05;
+  --color-dark:  #C05A3C;
+  --color-light: #F9A040;
+}
+[data-theme='yellow'] {
+  --color-black: #0F0F00;
+  --color-dark:  #BA779A;
+  --color-light: #EAC300;
+}
+[data-theme='green'] {
   --color-black: #001414;
-  --color-light: #58DD8B;
   --color-dark:  #0C7064;
+  --color-light: #58DD8B;
+}
+[data-theme='blue'] {
+  --color-black: #152B30;
+  --color-dark:  #077593;
+  --color-light: #64C8FA;
+}
+[data-theme='lavender'] {
+  --color-black: #0D0020;
+  --color-dark:  #754671;
+  --color-light: #A799CC;
+}
+[data-theme='violet'] {
+  --color-black: #05001E;
+  --color-dark:  #6531A0;
+  --color-light: #BB81C8;
 }
 
 @font-face {
@@ -28,7 +68,7 @@ label {
   font-size: 1.5rem;
 }
 
-input {
+input, select {
   background: var(--color-dark);
   outline: none;
   border: none;

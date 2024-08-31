@@ -1,3 +1,4 @@
+import { browser } from "$app/environment";
 import { writable, type Writable } from "svelte/store";
 
 const state = {
@@ -8,11 +9,24 @@ const state = {
 
 export type Glyph = [boolean, boolean, boolean, boolean, boolean, boolean, boolean, boolean, boolean]
 
+export const theme: Writable<string|null> = writable(null);
 export const maxColumns = writable(6);
 export const maxRows = writable(6);
 export const glyphs: Writable<Glyph[][]> = writable([]);
 export const translated = writable("");
 export const serialized = writable("[]");
+
+if (browser) {
+  theme.set(localStorage.getItem('theme'));
+}
+
+theme.subscribe((value) => {
+  if (browser && value) {
+    console.log('Setting theme to', value);
+    localStorage.setItem('theme', value);
+    changeTheme();
+  }
+});
 
 function createGlyph(): Glyph {
   return [false, false, false, false, false, false, false, false, false];

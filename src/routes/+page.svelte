@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { maxColumns, maxRows, glyphs, translated, serialized } from "$lib/store";
+	import { maxColumns, maxRows, glyphs, translated, serialized, theme } from "$lib/store";
   import GlyphComponent from './GlyphComponent.svelte';
   import './styles.scss';
 
@@ -15,10 +15,30 @@
     }
   }
 
+  const themes = [
+    {value: 'gray', label: 'G***'},
+    {value: 'red',  label: 'R***'},
+    {value: 'orange', label: 'O***'},
+    {value: 'yellow', label: 'Y***'},
+    {value: 'green', label: 'G***'},
+    {value: 'blue', label: 'B***'},
+    {value: 'lavender', label: 'I***'},
+    {value: 'violet', label: 'V***'},
+  ]
 </script>
 
 <main>
   <h1>Void Strangers Decoder</h1>
+
+  <div class="input-group">
+    <label>Theme
+      <select bind:value={$theme}>
+        {#each themes as t}
+          <option value={t.value}>{t.label}</option>
+        {/each}
+      </select>
+    </label>
+  </div>
 
   <div class="input-group">
     <label>Max Rows
